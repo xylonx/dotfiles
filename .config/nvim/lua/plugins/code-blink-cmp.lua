@@ -28,8 +28,10 @@ return {
     keymap = {
       preset = 'super-tab',
 
-      ['<D-j>'] = { 'select_next', 'fallback' },
-      ['<D-k>'] = { 'select_prev', 'fallback' },
+      ['j'] = { 'select_next', 'fallback' },
+      ['k'] = { 'select_prev', 'fallback' },
+      ['<Up>'] = { 'select_prev', 'fallback' },
+      ['<Down>'] = { 'select_next', 'fallback' },
     },
 
     appearance = {
