@@ -5,7 +5,6 @@ vim.opt.relativenumber = true
 -- Disable swapfile
 vim.opt.swapfile = false
 
-
 -- Set tab space
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
@@ -30,10 +29,12 @@ vim.opt.list = true
 -- instead raise a dialog asking if you wish to save the current file(s) See `:help 'confirm'`
 vim.opt.confirm = true
 
-
 -- Enable termguicolors to make bufferline.nvim works
 vim.opt.termguicolors = true
 
 -- Reserve a space in the gutter
 -- This will avoid an annoying layout shift in the screen
 vim.opt.signcolumn = 'yes'
+
+-- Enable inccommand
+vim.opt.inccommand = split

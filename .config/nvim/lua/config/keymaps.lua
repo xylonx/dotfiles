@@ -18,19 +18,18 @@ vim.keymap.set({ 'n' }, '<A-l>', '<C-w>l')
 --
 
 -- Map keys to toggle fzf-lua files
-vim.keymap.set(
-  'n',
-  '<D-f>',
-  function() require('fzf-lua').global() end,
-  { desc = 'FzfLua: global' }
-)
-vim.keymap.set(
-  'n',
-  '<D-b>',
-  function() require('fzf-lua').buffers() end,
-  { desc = 'FzfLua: buffers' }
-)
+vim.keymap.set('n', '<D-f>', function()
+  require('fzf-lua').global()
+end, { desc = 'FzfLua: global' })
+vim.keymap.set('n', '<D-b>', function()
+  require('fzf-lua').buffers()
+end, { desc = 'FzfLua: buffers' })
 
-vim.keymap.set({ "n", "v", "i" }, "<C-x><C-f>",
-  function() require('fzf-lua').complete_path() end,
-  { silent = true, desc = "Fuzzy complete path" })
+vim.keymap.set({ 'n', 'v', 'i' }, '<C-x><C-f>', function()
+  require('fzf-lua').complete_path()
+end, { silent = true, desc = 'Fuzzy complete path' })
+
+-- enable map
+vim.keymap.set('n', '<leader>rn', function()
+  return ':IncRename ' .. vim.fn.expand('<cword>')
+end, { expr = true })
