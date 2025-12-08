@@ -22,22 +22,23 @@ vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
   command = 'setfiletype json',
 })
 
--- Use jq to format JSON
+-- Reduce the tab to 2
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'json', 'jsonl' },
+  group = vim.api.nvim_create_augroup('xylonx-filetype-indent', { clear = true }),
+  pattern = require('config.custom').reduced_tabstop,
   callback = function()
-    vim.opt_local.formatprg = 'jq'
-    vim.opt_local.filetype = 'json'
+    vim.bo.tabstop = 2
   end,
+  desc = 'Decrease tabstop for certain filetypes.',
 })
 
 -- Disable line wrapping in quickfix and location lists
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'qf', 'loclist' },
-  callback = function()
-    vim.opt_local.wrap = false
-  end,
-})
+-- vim.api.nvim_create_autocmd('FileType', {
+--  pattern = { 'qf', 'loclist' },
+--  callback = function()
+--    vim.bo.wrap = false
+--  end,
+--})
 
 -- Disable search Highlight
 vim.api.nvim_create_autocmd('CursorMoved', {

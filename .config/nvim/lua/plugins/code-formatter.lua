@@ -20,6 +20,7 @@ return {
       -- File
       toml = { 'taplo' },
       json = { 'deno_fmt', 'prettierd', 'prettier', stop_after_first = true },
+      markdown = { 'deno_fmt' },
       -- yaml = { 'deno_fmt', 'prettierd', 'prettier', stop_after_first = true },
     },
     format_on_save = {
