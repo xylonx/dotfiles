@@ -58,7 +58,9 @@ esac
 # pnpm end## [Completion]
 
 # Cargo
-source "$HOME/.cargo/env"
+if [ -x "$(command -v cargo)" ]; then
+    source "$HOME/.cargo/env"
+fi
 
 # Local
 export PATH="$PATH:$HOME/.local/bin"
