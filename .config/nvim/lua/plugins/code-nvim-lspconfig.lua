@@ -5,6 +5,7 @@ return {
     dependencies = {
       { 'folke/which-key.nvim' },
     },
+    opts = {},
     config = function()
       -- This is where you enable features that only work
       -- if there is a language server active in the file

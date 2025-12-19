@@ -9,7 +9,7 @@ require('config.opts')
 
 -- Load plugin manager
 require('config.lazy')
-
+require('plugin.jdtls')
 -- Set custom keymaps
 require('config.keymaps')
 

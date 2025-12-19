@@ -37,4 +37,7 @@ vim.opt.termguicolors = true
 vim.opt.signcolumn = 'yes'
 
 -- Enable inccommand
-vim.opt.inccommand = split
+vim.opt.inccommand = 'split'
+
+-- Set vim file encoding list
+vim.opt.fileencodings = { 'ucs-bom', 'utf-8', 'cp936', 'gb18030', 'big5', 'latin1' }

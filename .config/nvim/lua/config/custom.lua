@@ -16,13 +16,16 @@ M.ensure_installed_treesitter = {
 
 --- The LSPs to be installed by Mason.
 M.ensure_installed_lsps = {
+  'rust_analyzer',
   'stylua',
+  'lua_ls',
   'clangd',
   'basedpyright',
+  'jdtls',
   'bashls',
   'tinymist',
   'ts_ls',
-  --  'neocmake',
+  'neocmake',
 }
 
 --- The Linters to be installed by Mason.
@@ -34,7 +37,8 @@ M.ensure_installed_linters = {
 --- The Formatters to be installed by Mason.
 M.ensure_installed_formatters = {
   lua = { 'stylua' },
-  python = { 'isort', 'black' },
+  -- python = { 'isort', 'black' },
+  python = { 'ruff' },
   sh = { 'shfmt' },
   bash = { 'shfmt' },
   zsh = { 'shfmt' },
@@ -42,17 +46,23 @@ M.ensure_installed_formatters = {
   cpp = { 'clang-format' },
   java = { 'google-java-format' },
   typst = { 'typstyle' },
+  go = { 'goimports' },
+  rust = { 'rustfmt', lsp_format = 'fallback' },
   javascript = { 'prettier' },
   typescript = { 'prettier' },
   javascriptreact = { 'prettier' },
   typescriptreact = { 'prettier' },
-  --  svelte = { "prettier" },
-  --  tex = { "latexindent" },
+  --  javascript = { 'deno_fmt', 'prettierd', 'prettier', stop_after_first = true },
+  --  typescript = { 'deno_fmt', 'prettierd', 'prettier', stop_after_first = true },
+  svelte = { 'prettier' },
+  tex = { 'latexindent' },
   css = { 'prettier' },
   html = { 'prettier' },
   json = { 'prettier' },
   jsonc = { 'prettier' },
   yaml = { 'prettier' },
+  toml = { 'taplo' },
+  xml = { 'xmlformatter' },
   markdown = { 'prettier' },
   graphql = { 'prettier' },
   sql = { 'sql_formatter' },
