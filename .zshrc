@@ -2,6 +2,24 @@
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="agnoster"
 
+function install_omz_plugins() {
+    local resource_name="$1"
+    local resource_url="$2"
+    local oh_my_zsh_resource_dir=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/$resource_name
+
+    # Check if the plugin already exists
+    if [ ! -d "$oh_my_zsh_resource_dir" ]; then
+        echo "Installing plugin $resource_name to path: $oh_my_zsh_resource_dir"
+        git clone --quiet --depth 1 "$resource_url" "$oh_my_zsh_resource_dir"
+    fi
+}
+function install_omz_github_plugins() {
+    install_omz_plugins $1 "https://github.com/$2.git"
+}
+
+install_omz_github_plugins zsh-syntax-highlighting zsh-users/zsh-syntax-highlighting
+install_omz_github_plugins zsh-autosuggestions zsh-users/zsh-autosuggestions
+
 plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
