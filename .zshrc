@@ -61,6 +61,7 @@ fi
 alias ks="kitten ssh"
 alias proxy_on="export ALL_PROXY=http://127.0.0.1:7890 HTTP_PROXY=http://127.0.0.1:7890 HTTPS_PROXY=http://127.0.0.1:7890"
 alias proxy_off="unset ALL_PROXY HTTP_PROXY HTTPS_PROXY"
+alias vimdiff="nvim -d"
 
 # Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
