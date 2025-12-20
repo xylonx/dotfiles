@@ -2,6 +2,9 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+-- Disable line wrap
+vim.opt.wrap = false
+
 -- Disable swapfile
 vim.opt.swapfile = false
 
@@ -41,3 +44,6 @@ vim.opt.inccommand = 'split'
 
 -- Set vim file encoding list
 vim.opt.fileencodings = { 'ucs-bom', 'utf-8', 'cp936', 'gb18030', 'big5', 'latin1' }
+
+-- Set global vars for format on modifications
+vim.g.format_modifications_only = false
