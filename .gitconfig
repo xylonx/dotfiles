@@ -1,0 +1,12 @@
+[user]
+  name = xylonx
+  email = xylonx@xylonx.com
+
+[init]
+  defaultBranch = master
+
+[diff]
+  tool = vimdiff
+
+[difftool]
+  prompt = false
