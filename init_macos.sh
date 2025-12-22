@@ -44,7 +44,7 @@ homebrew_install_tools git curl wget vim stow uv
 homebrew_install_formulas fzf fd ripgrep yazi mise neovim
 
 # Install useful cask apps
-homebew_install_casks iterm2 kitty betterdisplay clipy jordanbaird-ice
+homebew_install_casks iterm2 kitty betterdisplay clipy jordanbaird-ice stats
 
 # Install pnpm
 if [ ! -x "$(command -v pnpm)" ]; then
