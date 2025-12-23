@@ -1,7 +1,7 @@
 -- Create key bindings and help remembers them
 return {
-  "folke/which-key.nvim",
-  event = "VeryLazy",
+  'folke/which-key.nvim',
+  event = 'VeryLazy',
   opts = {
     -- your configuration comes here
     -- or leave it empty to use the default settings
@@ -9,31 +9,29 @@ return {
   },
   keys = {
     {
-      "<leader>?",
+      '<leader>?',
       function()
-        require("which-key").show({ global = false })
+        require('which-key').show({ global = false })
       end,
-      desc = "Buffer Local Keymaps (which-key)",
+      desc = 'Buffer Local Keymaps (which-key)',
     },
   },
 }
 
-
-
 -- return {
 --   'folke/which-key.nvim',
 --   event = 'VeryLazy',
--- 
+--
 --   init = function()
 --     vim.o.timeout = true
 --     vim.o.timeoutlen = 500
 --   end,
--- 
+--
 --   config = function()
 --     -- Set key mappings that does not require any plugin here.
 --     -- If it requires a plugin, put inside respective plugin lua file.
 --     local wk = require('which-key')
--- 
+--
 --     -- Leader Key Bindings
 --     wk.add({
 --       { '<leader>D', ':bd!<CR>', desc = 'Close current buffer' },
@@ -53,13 +51,13 @@ return {
 --       { '<leader>tt', ':tabnew | terminal<CR>', desc = 'Tab Terminal' },
 --       { '<leader>tv', ':vsplit term://zsh<CR>', desc = 'Vertical Terminal' },
 --     })
--- 
+--
 --     -- Local Leader Key Bindings
 --     wk.add({
 --       { '\\c', ':lclose<CR>', desc = 'Close location list' },
 --       { '\\p', ":echo expand('%:p')<CR>", desc = 'Show full path of current file' },
 --     })
--- 
+--
 --     -- Function Key Bindings
 --     wk.add({
 --       { '<F2>', ':e! $MYVIMRC<CR>', desc = 'Edit vimrc' },
@@ -72,7 +70,7 @@ return {
 --       { '<F8>', ':wa<CR>:mksession!<CR>:qa!<CR>', desc = 'Save all and close' },
 --       { '<F12>', ':cq<CR>', desc = 'Abort with non-zero exit code' },
 --     })
--- 
+--
 --     -- Single Key Bindings
 --     wk.add({
 --       { '<left>', '<C-w><', desc = 'Resize window narrower' },
@@ -82,7 +80,7 @@ return {
 --       { 'j', 'gj', desc = 'Move down by visual line' },
 --       { 'k', 'gk', desc = 'Move up by visual line' },
 --     })
--- 
+--
 --     -- Combination Key Bindings
 --     wk.add({
 --       { '<C-l>', ':nohlsearch<CR>', desc = 'Clear search highlight' },
@@ -93,7 +91,7 @@ return {
 --       { 'gk', '<C-w>k', desc = 'Navigate to top window' },
 --       { 'gl', '<C-w>l', desc = 'Navigate to right window' },
 --     })
--- 
+--
 --     -- Visual Mode Bindings
 --     wk.add({
 --       mode = 'v',
@@ -104,13 +102,13 @@ return {
 --       { '<leader>y', '"+y', desc = 'Copy to clipboard' },
 --       { '<leader>p', '"+p', desc = 'Paste from clipboard' },
 --     })
--- 
+--
 --     -- Terminal Mode Bindings
 --     wk.add({
 --       mode = 't',
 --       { '<Esc>', '<C-\\><C-n>', desc = 'Exit terminal mode' },
 --     })
--- 
+--
 --     -- Navigation Key Bindings
 --     wk.add({
 --       { '[q', ':cprevious<CR>', desc = 'Previous item in quickfix' },

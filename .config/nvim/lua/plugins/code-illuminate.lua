@@ -1,5 +1,5 @@
 return {
-  "RRethy/vim-illuminate",
+  'RRethy/vim-illuminate',
   event = 'VeryLazy',
   config = function()
     require('illuminate').configure({
@@ -8,6 +8,6 @@ return {
         'treesitter',
         'regex',
       },
-  })
-  end
+    })
+  end,
 }

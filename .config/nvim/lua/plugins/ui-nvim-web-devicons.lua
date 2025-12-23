@@ -1,2 +1,4 @@
-return { "nvim-tree/nvim-web-devicons", opts = {} }
-
+return {
+  'nvim-tree/nvim-web-devicons',
+  opts = {},
+}
