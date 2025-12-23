@@ -1,4 +1,4 @@
-#/usr/bin/env bash
+#!/usr/bin/env bash
 
 function homebrew_install_tools() {
     for tool in "$@"; do
