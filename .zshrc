@@ -77,7 +77,7 @@ esac
 # pnpm end## [Completion]
 
 # Cargo
-if [ -x "$(command -v cargo)" ]; then
+if [ -f "$HOME/.cargo/env" ]; then
     source "$HOME/.cargo/env"
 fi
 
