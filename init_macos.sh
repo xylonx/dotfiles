@@ -41,17 +41,11 @@ fi
 homebrew_install_tools git curl wget vim stow uv
 
 # Install tools for nvim plugins toolit
-homebrew_install_formulas fzf fd ripgrep yazi mise neovim
+homebrew_install_formulas fzf fd ripgrep yazi mise neovim uutils-coreutils
 
 # Install useful cask apps
 homebew_install_casks iterm2 kitty betterdisplay clipy jordanbaird-ice stats
 
-# Install pnpm
-if [ ! -x "$(command -v pnpm)" ]; then
-    curl -fsSL https://get.pnpm.io/install.sh | sh -
-else
-    echo "pnpm already exists"
-fi
 # Install Powerline Fonts
 # git clone https://github.com/powerline/fonts.git
 
@@ -77,3 +71,4 @@ if [ ! -x "$(command -v cargo)" ]; then
 else
     echo "rust toolchain already exists"
 fi
+

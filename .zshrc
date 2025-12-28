@@ -68,14 +68,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # ask homebrew not to request github access keychains
 export HOMEBREW_NO_GITHUB_API=1
 
-# pnpm
-export PNPM_HOME="$HOME/Library/pnpm"
-case ":$PATH:" in
-    *":$PNPM_HOME:"*) ;;
-    *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end## [Completion]
-
 # Cargo
 if [ -f "$HOME/.cargo/env" ]; then
     source "$HOME/.cargo/env"
