@@ -1,0 +1,11 @@
+[tools]
+python = ['latest', '3.12', '3.8']
+uv = 'latest'
+
+[settings]
+# Use the virtual environment created by uv, you can set the python.uv_venv_auto setting to true in your mise.toml file.
+python.uv_venv_auto = true
+
+# Include below section to project specific config
+# [env]
+# _.python.venv = { path = ".venv", create = true, uv_create_args = ['--seed'] }

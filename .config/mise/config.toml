@@ -1,6 +1,17 @@
-[tools]
-node = "25.2.1"
-
 [settings]
-# Python Settings
-python.uv_venv_auto = true
+# tools can read the versions files used by other version managers
+# for example, .nvmrc in the case of node's nvm
+idiomatic_version_file_enable_tools = ['node', 'python']
+
+# configure `mise install` to always keep the downloaded archive
+always_keep_download = false # deleted after install by default
+always_keep_install = false  # deleted on failure by default
+
+# load env vars from a dotenv file, see `MISE_ENV_FILE`
+env_file = '.env'
+
+# enable experimental features
+experimental = true
+
+# configure messages displayed when entering directories with config files
+status = { missing_tools = "if_other_versions_installed", show_env = false, show_tools = false }

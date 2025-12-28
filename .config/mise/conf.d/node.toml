@@ -1,0 +1,3 @@
+[tools]
+node = { version = "latest", postinstall = "corepack enable" }
+pnpm = ["latest"]
