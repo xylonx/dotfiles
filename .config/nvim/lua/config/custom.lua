@@ -69,6 +69,7 @@ M.formatters_by_ft = {
   markdown = { 'prettier' },
   graphql = { 'prettier' },
   sql = { 'sqruff' },
+  kdl = { 'kdlfmt' },
 }
 
 --- The DAPs to be installed by Mason.
