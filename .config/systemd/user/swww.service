@@ -1,0 +1,11 @@
+[Unit]
+Description=Start SWWW as Wallpaper Engine
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+Environment=RUST_BACKTRACE=1
+ExecStart=/usr/bin/swww-daemon
+Restart=on-failure
+RestartSec=15

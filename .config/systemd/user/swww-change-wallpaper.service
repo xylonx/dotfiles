@@ -1,0 +1,6 @@
+[Unit]
+Description=Change wallpaper using SWWW
+After=swww.service
+
+[Service]
+ExecStart=/bin/bash /home/xylonx/.config/swww/swww.sh
