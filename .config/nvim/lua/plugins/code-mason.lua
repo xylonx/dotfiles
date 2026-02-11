@@ -6,14 +6,15 @@ return {
   dependencies = {
     { 'mason-org/mason.nvim', opts = {} },
     'neovim/nvim-lspconfig',
+    "mfussenegger/nvim-jdtls",
   },
   opts = {
     ensure_installed = M.ensure_installed_lsps,
-    automatic_enable = {
-      exclude = {
-        'jdtls',
-      },
-    },
+    -- automatic_enable = {
+    --   exclude = {
+    --     'jdtls',
+    --   },
+    -- },
   },
 }
 -- return {

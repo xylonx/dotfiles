@@ -46,4 +46,4 @@ vim.opt.inccommand = 'split'
 vim.opt.fileencodings = { 'ucs-bom', 'utf-8', 'cp936', 'gb18030', 'big5', 'latin1' }
 
 -- Set global vars for format on modifications
-vim.g.format_modifications_only = false
+vim.g.format_modifications_only = true

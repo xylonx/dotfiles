@@ -35,7 +35,7 @@ M.ensure_installed_linters = {
 }
 
 --- The Formatters to be installed by Mason.
-M.ensure_installed_formatters = {
+M.formatters_by_ft = {
   lua = { 'stylua' },
   -- python = { 'isort', 'black' },
   python = { 'ruff_fix', 'ruff_organize_imports', 'ruff_format' },
@@ -68,7 +68,7 @@ M.ensure_installed_formatters = {
   xml = { 'xmlformatter' },
   markdown = { 'prettier' },
   graphql = { 'prettier' },
-  sql = { 'sql_formatter' },
+  sql = { 'sqruff' },
 }
 
 --- The DAPs to be installed by Mason.

@@ -30,8 +30,15 @@ end, {
 vim.api.nvim_create_user_command('FormatEnable', function()
   vim.b.disable_autoformat = false
   vim.g.disable_autoformat = false
+  vim.g.format_modifications_only = false
 end, {
   desc = 'Re-enable autoformat-on-save',
+})
+
+vim.api.nvim_create_user_command('Format', function ()
+    require('conform').format()
+end, {
+desc = 'Format the current buffer'
 })
 
 -- vim.keymap.set("n", "your_keymap", function()

@@ -76,7 +76,7 @@ return {
   dependencies = { 'lewis6991/gitsigns.nvim' },
   opts = {
     -- Conform will run multiple formatters sequentially
-    formatters_by_ft = M.ensure_installed_formatters,
+    formatters_by_ft = M.formatters_by_ft,
     -- Default format on save is not enough. Configure it manually
     format_on_save = function(bufnr)
       -- Disable with a global or buffer-local variable
