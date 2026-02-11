@@ -1,0 +1,2 @@
+[tools]
+go = { version = "latest" }

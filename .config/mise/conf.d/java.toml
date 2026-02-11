@@ -1,0 +1,5 @@
+[tools]
+coursier = "latest"
+java = "openjdk-25.0.2"
+maven = "3.9.12"
+scala = "3.8.1"

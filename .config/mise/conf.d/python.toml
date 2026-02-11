@@ -1,5 +1,5 @@
 [tools]
-python = ['latest', '3.12', '3.8']
+python = ['latest', '3.12', '3.9', '3.8']
 uv = 'latest'
 
 [settings]
