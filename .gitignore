@@ -1,2 +1,4 @@
 # zshenv contains sensitive information. Ignore it
 .zshenv 
+
+.DS_Store
