@@ -5,6 +5,19 @@ vim.opt.relativenumber = true
 -- Disable line wrap
 vim.opt.wrap = false
 
+-- Set clipboard to communicate with system
+-- Get more information from here: https://github.com/kovidgoyal/kitty/discussions/6640
+vim.opt.clipboard = 'unnamedplus'
+-- vim.g.clipboard = {
+--   name = 'OSC 52',
+--   copy = {
+--     ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+--   },
+--   paste = {
+--     ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+--   },
+-- }
+--
 -- Disable swapfile
 vim.opt.swapfile = false
 

@@ -1,5 +1,6 @@
 -- Use <Esc> to exit terminal mode
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
+vim.keymap.set('i', 'jk', '<Esc>')
 
 -- Map <A-j>, <A-k>, <A-h>, <A-l> to navigate between windows in any modes
 vim.keymap.set({ 't', 'i' }, '<A-h>', '<C-\\><C-n><C-w>h')
@@ -16,10 +17,10 @@ vim.keymap.set({ 'n' }, '<A-l>', '<C-w>l')
 --
 
 -- Map keys to toggle fzf-lua files
-vim.keymap.set('n', '<D-f>', function()
+vim.keymap.set('n', '<M-f>', function()
   require('fzf-lua').global()
 end, { desc = 'FzfLua: global' })
-vim.keymap.set('n', '<D-g>', function()
+vim.keymap.set('n', '<M-g>', function()
   require('fzf-lua').live_grep_native()
 end, { desc = 'FzfLua: Live grep native' })
 
@@ -31,3 +32,6 @@ end, { silent = true, desc = 'Fuzzy complete path' })
 vim.keymap.set('n', '<leader>rn', function()
   return ':IncRename ' .. vim.fn.expand('<cword>')
 end, { expr = true })
+
+-- Undo tree
+vim.keymap.set('n', '<leader>U', vim.cmd.UndotreeToggle)
