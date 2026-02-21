@@ -1,0 +1,11 @@
+[general]
+fullscreen = false
+resize = { mode = "smart" }
+floating-hack = true
+
+corner-roundness = 12
+initial-tool = "brush"
+
+copy-command = "wl-copy"
+focus-toggles-toolbars= true
+actions-on-right-click = ["save-to-clipboard"]
