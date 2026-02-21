@@ -301,8 +301,7 @@ window-rule {
     open-floating true
 }
 window-rule {
-    // match app-id="flameshot" title="flameshot-pin"
-    match app-id="^flameshot$"
+    match app-id="^com.gabm.satty$"
     open-floating true
 }
 // Example: block out two password managers from screen capture.
@@ -342,7 +341,8 @@ binds {
         spawn-sh "rofi -show combi -combi-modi window,drun,run"
     }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" {
-        spawn "swaylock"
+        // spawn "swaylock"
+        spawn "hyprlock" "-c" "/home/xylonx/.config/hypr/hyprlock.conf"
     }
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
@@ -762,11 +762,15 @@ binds {
     // since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
+    // Print {
+    //     screenshot
+    // }
     Print {
         screenshot
     }
     Ctrl+Print {
-        screenshot-screen
+        spawn-sh "wl-paste | satty -f -"
+ // screenshot-screen
     }
     Alt+Print {
         screenshot-window
@@ -803,7 +807,10 @@ cursor {
 
 }
 environment {
-    VK_DRIVER_FILES "/usr/share/vulkan/icd.d/radeon_icd.x86_64.json"
+    // VK_DRIVER_FILES "/usr/share/vulkan/icd.d/radeon_icd.x86_64.json"
+    // Use vulkan-mesa-implicit-layer to force using 9070XT
+    // https://wiki.archlinux.org/title/Vulkan#Switching_between_AMD_drivers
+    MESA_VK_DEVICE_SELECT "1002:7550"
     QT_IM_MODULE "fcitx"
     XMODIFIERS "@im=fcitx"
     QT_IM_MODULES "wayland;fcitx"
