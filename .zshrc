@@ -64,9 +64,11 @@ alias proxy_off="unset ALL_PROXY HTTP_PROXY HTTPS_PROXY"
 alias vimdiff="nvim -d"
 
 # Homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
-# ask homebrew not to request github access keychains
-export HOMEBREW_NO_GITHUB_API=1
+if [[ $OSTYPE == darwin* ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    # ask homebrew not to request github access keychains
+    export HOMEBREW_NO_GITHUB_API=1
+fi
 
 # Cargo
 if [ -f "$HOME/.cargo/env" ]; then
@@ -88,3 +90,10 @@ if [ -x "$(command -v mise)" ]; then
     eval "$(mise activate zsh)"
 fi
 
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
