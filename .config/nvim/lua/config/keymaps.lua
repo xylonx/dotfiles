@@ -17,12 +17,21 @@ vim.keymap.set({ 'n' }, '<A-l>', '<C-w>l')
 --
 
 -- Map keys to toggle fzf-lua files
-vim.keymap.set('n', '<M-f>', function()
-  require('fzf-lua').global()
-end, { desc = 'FzfLua: global' })
-vim.keymap.set('n', '<M-g>', function()
-  require('fzf-lua').live_grep_native()
-end, { desc = 'FzfLua: Live grep native' })
+if vim.fn.has('mac') then
+  vim.keymap.set('n', '<D-f>', function()
+    require('fzf-lua').global()
+  end, { desc = 'FzfLua: global' })
+  vim.keymap.set('n', '<D-g>', function()
+    require('fzf-lua').live_grep_native()
+  end, { desc = 'FzfLua: Live grep native' })
+else
+  vim.keymap.set('n', '<M-f>', function()
+    require('fzf-lua').global()
+  end, { desc = 'FzfLua: global' })
+  vim.keymap.set('n', '<M-g>', function()
+    require('fzf-lua').live_grep_native()
+  end, { desc = 'FzfLua: Live grep native' })
+end
 
 vim.keymap.set({ 'n', 'v', 'i' }, '<C-x><C-f>', function()
   require('fzf-lua').complete_path()
