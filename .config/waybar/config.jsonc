@@ -100,12 +100,12 @@
   "custom/brightness": {
     // "exec": "ddcutil -b 18 getvcp 10 -t | perl -nE 'if (/ C (\\d+) /) { say $1; }'",
     "exec": "ddcutil getvcp 10 -t | awk '{ print $4 }'",
-    "exec-if": "sleep 1", // Give enough time for `sway output` command changes to propagate so we can read them in the next `exec`
+    // "exec-if": "sleep 1", // Give enough time for `sway output` command changes to propagate so we can read them in the next `exec`
     "format": "{}% {icon}",
     "format-icons": [""],
-    // "interval": "once",
-    // "on-scroll-up": "ddcutil setvcp 10 + 10",
-    // "on-scroll-down": "ddcutil setvcp 10 - 10",
+    "interval": 5,
+    "on-scroll-up": "ddcutil setvcp 10 + 10",
+    "on-scroll-down": "ddcutil setvcp 10 - 10",
   },
   "temperature": {
     "format": "{temperatureC}°C {icon}",
