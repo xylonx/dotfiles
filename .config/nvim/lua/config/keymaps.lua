@@ -17,7 +17,7 @@ vim.keymap.set({ 'n' }, '<A-l>', '<C-w>l')
 --
 
 -- Map keys to toggle fzf-lua files
-if vim.fn.has('mac') then
+if vim.fn.has('mac') == 1 then
   vim.keymap.set('n', '<D-f>', function()
     require('fzf-lua').global()
   end, { desc = 'FzfLua: global' })
