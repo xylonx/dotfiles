@@ -245,6 +245,7 @@ layout {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 // spawn-sh-at-startup "niri msg action quit --skip-confirmation"
 // spawn-at-startup "waybar"
+spawn-sh-at-startup "wl-paste --watch cliphist store"
 // spawn-at-startup "qs" "-c" "noctalia-shell"
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -338,7 +339,10 @@ binds {
         spawn "kitty"
     }
     Mod+Space hotkey-overlay-title="Run the Application Manager: Rofi" {
-        spawn-sh "rofi -show combi -combi-modi window,drun,run"
+        spawn-sh "rofi -show combi --show-icons -combi-modi window,drun,run"
+    }
+    Alt+Space {
+        spawn-sh "rofi -modi clipboard:$HOME/.config/cliphist/cliphist-rofi-img -show clipboard -show-icons"
     }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" {
         // spawn "swaylock"
