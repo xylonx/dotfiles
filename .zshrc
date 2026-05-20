@@ -77,8 +77,7 @@ if [ -f "$HOME/.cargo/env" ]; then
 fi
 
 # Local
-export PATH="$PATH:$HOME/.local/bin"
-
+export PATH="$HOME/.local/bin:$PATH"
 
 # uv
 if [ -x "$(command -v uv)" ]; then
