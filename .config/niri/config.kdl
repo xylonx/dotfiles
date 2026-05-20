@@ -316,7 +316,7 @@ block-out-from "screen-capture"
 }
 // Set the overview wallpaper on the backdrop.
 layer-rule {
-    match namespace="^swww-daemon*"
+    match namespace="^awww-daemon*"
     place-within-backdrop true
 }
 binds {

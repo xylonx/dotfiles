@@ -1,0 +1,6 @@
+[Unit]
+Description=Change wallpaper using AWWW
+After=awww.service
+
+[Service]
+ExecStart=/bin/bash /home/xylonx/.config/awww/awww.sh
