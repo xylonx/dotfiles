@@ -1,44 +1,86 @@
 return {
   'nvim-treesitter/nvim-treesitter',
-  branch = 'master',
+  -- branch = 'main',
   lazy = false,
   build = ':TSUpdate',
-  opts = {
-    -- ensure_installed = { "c", "lua", "vim", "vimdoc" },
-  },
   config = function()
-    require('nvim-treesitter.configs').setup({
-      -- A list of parser names, or "all" (the four listed parsers should always be installed)
-      ensure_installed = { 'lua', 'vim', 'vimdoc', 'comment', 'python', 'go', 'javascript', 'typescript', 'java' },
+    local ts = require('nvim-treesitter')
 
-      -- Install parsers synchronously (only applied to `ensure_installed`)
-      sync_install = false,
+    -- -- `main` branch API: require('nvim-treesitter').install(...)
+    -- if type(ts.install) == 'function' then
+    --   ts.install(ensure_installed)
+    --
 
-      -- Automatically install missing parsers when entering buffer
-      -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-      auto_install = true,
+    --   -- Enable treesitter highlighting + indentation on supported filetypes.
+    vim.api.nvim_create_autocmd('FileType', {
+      callback = function(args)
+        local buf = args.buf
+        local ft = vim.bo[buf].filetype
+        local lang = vim.treesitter.language.get_lang(ft)
+        if not lang then
+          return
+        end
 
-      highlight = {
-        enable = true,
-        -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
-        -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
-        -- the name of the parser)
-        -- list of language that will be disabled
-        -- disable = { "c", "rust" },
-        -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
-        disable = function(lang, buf)
-          local max_filesize = 3 * 1024 * 1024 -- 3 MB
-          local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-          if ok and stats and stats.size > max_filesize then
-            return true
-          end
-        end,
-        -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-        -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-        -- Using this option may slow down your editor, and you may see some duplicate highlights.
-        -- Instead of true it can also be a list of languages
-        additional_vim_regex_highlighting = false,
-      },
+        local max_filesize = 3 * 1024 * 1024 -- 3 MB
+        local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+        if ok and stats and stats.size > max_filesize then
+          return
+        end
+
+        if not vim.treesitter.language.add(lang) then
+          return
+        end
+
+        pcall(vim.treesitter.start, buf, lang)
+        vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+
+        vim.treesitter.start()
+      end,
     })
+
+    --   -- Enable treesitter highlighting + indentation on supported filetypes.
+    --   vim.api.nvim_create_autocmd('FileType', {
+    --     callback = function(args)
+    --       local buf = args.buf
+    --       local ft = vim.bo[buf].filetype
+    --       local lang = vim.treesitter.language.get_lang(ft)
+    --       if not lang then
+    --         return
+    --       end
+    --
+    --       local max_filesize = 3 * 1024 * 1024 -- 3 MB
+    --       local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+    --       if ok and stats and stats.size > max_filesize then
+    --         return
+    --       end
+    --
+    --       if not vim.treesitter.language.add(lang) then
+    --         return
+    --       end
+    --
+    --       pcall(vim.treesitter.start, buf, lang)
+    --       vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    --     end,
+    --   })
+    --   return
+    -- end
+
+    -- Fallback: old `master` branch API (require('nvim-treesitter.configs').setup)
+    -- require('nvim-treesitter.configs').setup({
+    --   ensure_installed = ensure_installed,
+    --   sync_install = false,
+    --   auto_install = true,
+    --   highlight = {
+    --     enable = true,
+    --     disable = function(_, buf)
+    --       local max_filesize = 3 * 1024 * 1024 -- 3 MB
+    --       local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+    --       if ok and stats and stats.size > max_filesize then
+    --         return true
+    --       end
+    --     end,
+    --     additional_vim_regex_highlighting = false,
+    --   },
+    -- })
   end,
 }
