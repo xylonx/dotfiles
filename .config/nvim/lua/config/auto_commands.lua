@@ -58,9 +58,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 -- JDTLS
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'java',
-  callback = function()
-    require('plugin.jdtls').setup({})
-  end,
-})
+-- vim.api.nvim_create_autocmd('FileType', {
+--   pattern = 'java',
+--   callback = function()
+--     require('plugin.jdtls').setup({})
+--   end,
+-- })

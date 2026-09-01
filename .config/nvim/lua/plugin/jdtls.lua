@@ -91,7 +91,7 @@ function M:setup()
   local bundles = get_bundles()
 
   -- Determine the root directory of the project by looking for these specific markers
-  local root_dir = vim.fs.root(0, { '.git', 'mvnw', 'gradlew', 'pom.xml', 'build.gradle' })
+  local root_dir = vim.fs.root(0, { 'mvnw', 'gradlew', 'pom.xml', 'build.gradle' })
 
   -- Tell our JDTLS language features it is capable of
   local capabilities = {
@@ -244,8 +244,13 @@ function M:setup()
 
   -- Function that will be ran once the language server is attached
   local on_attach = function(_, bufnr)
-    local ts_indent = require('nvim-treesitter.indent')
-    ts_indent.detach(bufnr)
+    -- Let jdtls handle indentation instead of treesitter.
+    local ok, ts_indent = pcall(require, 'nvim-treesitter.indent')
+    if ok and ts_indent.detach then
+      ts_indent.detach(bufnr) -- nvim-treesitter master branch API
+    else
+      vim.bo[bufnr].indentexpr = '' -- nvim-treesitter main branch: clear ts indentexpr
+    end
     -- Enable jdtls commands to be used in Neovim
     vim.lsp.codelens.refresh()
 
